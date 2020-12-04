@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_employee_form_inherited_bt" model="ir.ui.view">
+            <field name="name">hr.employee.inherit.form</field>
+            <field name="model">hr.employee</field>
+<!--        Extra field we added referencing the parent hr form view-->
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="arch" type="xml">
+                <xpath expr='//field[@name="coach_id"]' position="after">
+<!--                    Our Custom field-->
+                    <field name="is_trainee"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
+

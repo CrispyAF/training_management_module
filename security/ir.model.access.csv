@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_bt_management_bt_management,bt_management.bt_management,model_bt_management_bt_management,base.group_user,1,1,1,1
+access_trainer_trainer,trainer.trainer,model_trainer_trainer,base.group_user,1,1,1,1
+access_designation_designation,designation.designation,model_designation_designation,base.group_user,1,1,1,1
+access_location_location,location.location,model_location_location,base.group_user,1,1,1,1
+access_topic_topic,topic.topic,model_topic_topic,base.group_user,1,1,1,1
+access_subjects_subjects,subjects.subjects,model_subjects_subjects,base.group_user,1,1,1,1

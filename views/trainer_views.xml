@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+  <data>
+
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="trainer_list">
+      <field name="name">trainer list</field>
+      <field name="model">trainer.trainer</field>
+      <field name="arch" type="xml">
+        <tree>
+            <field name="trainer_name"/>
+            <field name="trainer_first_name"/>
+            <field name="trainer_last_name"/>
+        </tree>
+      </field>
+    </record>
+
+          <!-- explicit form view definition -->
+    <record model="ir.ui.view" id="trainer_form">
+      <field name="name">trainer form</field>
+      <field name="model">trainer.trainer</field>
+      <field name="arch" type="xml">
+        <form string="Trainer">
+          <sheet>
+              <group>
+                  <h2>
+                      <field name="trainer_name"/>
+                  </h2>
+              </group>
+            <group>
+              <group>
+                  <field name="trainer_first_name"/>
+                  <field name="trainer_last_name"/>
+              </group>
+            </group>
+          </sheet>
+<!--          <div class="oe_chatter">-->
+<!--              <field name="message_follower_ids" widget="mail_followers"/>-->
+<!--              <field name="activity_ids" widget="mail_activity"/>-->
+<!--              <field name="message_ids" widget="mail_thread" options="{'post_refresh': 'recipients'}"/>-->
+<!--          </div>-->
+        </form>
+      </field>
+    </record>
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="trainer_action_window">
+      <field name="name">Trainer List</field>
+      <field name="res_model">trainer.trainer</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="bt_management.action_server">
+      <field name="name">bt_management server</field>
+      <field name="model_id" ref="model_bt_management_bt_management"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- actions -->
+    <menuitem name="Trainer List" id="trainer_menu_list" parent="bt_management.menu_2"
+              action="trainer_action_window"/>
+
+
+  </data>
+</odoo>
