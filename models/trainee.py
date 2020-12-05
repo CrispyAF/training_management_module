@@ -43,6 +43,7 @@ class BtManagement(models.Model):
         for rec in self:
             rec.email = str(rec.first_name).lower() + str(rec.last_name).lower() + '@gmail.com'
 
+    # to generate unique and sequential trainee id
     @api.model
     def create(self, vals):
         if vals.get('trainee_id', _('New')) == _('New'):
