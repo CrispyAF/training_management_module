@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+  <data>
+
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="training_record_list">
+      <field name="name">record list</field>
+      <field name="model">record.record</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="record_name"/>
+          <field name="record_date"/>
+          <field name="batch"/>
+          <field name="training_lines"/>
+          <field name="topics_covered"/>
+          <field name="attendance"/>
+        </tree>
+      </field>
+    </record>
+
+        <!-- explicit form view definition -->
+
+    <record model="ir.ui.view" id="training_record_form">
+      <field name="name">record form</field>
+      <field name="model">record.record</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <group>
+              <group>
+                <field name="record_name"/>
+                <field name="record_date"/>
+                <field name="batch"/>
+              </group>
+              <group>
+                <field name="training_lines"/>
+                <field name="topics_covered"/>
+                <field name="attendance"/>
+<!--                stages is left-->
+              </group>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="record_action_window">
+      <field name="name">Record</field>
+      <field name="res_model">record.record</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="bt_management.action_server">
+      <field name="name">bt_management server</field>
+      <field name="model_id" ref="model_bt_management_bt_management"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- actions -->
+    <menuitem name="Record" id="record_menu_list" parent="bt_management.menu_3"
+              action="record_action_window"/>
+
+
+  </data>
+</odoo>

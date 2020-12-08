@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+  <data>
+
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="trainee_attendance_list">
+      <field name="name">trainee attendance list</field>
+      <field name="model">attendance.attendance</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="trainee_attendance_name"/>
+          <field name="date"/>
+          <field name="trainee"/>
+          <field name="login_time"/>
+          <field name="logout_time"/>
+          <field name="hours"/>
+          <field name="training_record"/>
+        </tree>
+      </field>
+    </record>
+
+        <!-- explicit form view definition -->
+
+    <record model="ir.ui.view" id="training_topic_form">
+      <field name="name">attendance form</field>
+      <field name="model">attendance.attendance</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <group>
+              <div class="oe_title">
+                <h2>
+                  <field name="trainee_attendance_name" readonly="1"/>
+                </h2>
+              </div>
+              <group>
+                <field name="date"/>
+                <field name="trainee"/>
+                <field name="login_time"/>
+              </group>
+              <group>
+                <field name="logout_time"/>
+                <field name="hours"/>
+                <field name="training_record" readonly="1"/>
+              </group>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="attendance_action_window">
+      <field name="name">Attendance</field>
+      <field name="res_model">attendance.attendance</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="bt_management.action_server">
+      <field name="name">bt_management server</field>
+      <field name="model_id" ref="model_bt_management_bt_management"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- actions -->
+    <menuitem name="Attendance" id="attendance_menu_list" parent="bt_management.menu_3"
+              action="attendance_action_window"/>
+
+
+  </data>
+</odoo>

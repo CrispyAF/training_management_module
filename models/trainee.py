@@ -3,37 +3,43 @@
 from odoo import models, fields, api, _
 from odoo.exceptions import ValidationError
 
-
 class BtManagement(models.Model):
     _name = 'bt_management.bt_management'
     _inherit = ['mail.thread', 'mail.activity.mixin']
     _description = 'Trainee Management'
 
-    name = fields.Char(compute='comp_name', tracking=1)
-    first_name = fields.Char("First Name", required=1, tracking=1)
-    last_name = fields.Char("Last Name", tracking=1)
+    name = fields.Char(compute='_comp_name', tracking=1)
+    first_name = fields.Char("First Name", required=1)
+    last_name = fields.Char("Last Name")
     trainee_id = fields.Char(string='Trainee ID', required=True, copy=False, readonly=True, index=True,
-                             default=lambda self: _('New'), tracking=1)
-    emp_code = fields.Char("Employee Code", tracking=1)
+                             default=lambda self: _('New'))
+    emp_code = fields.Char("Employee Code")
     email = fields.Char(compute='_onchange_name_update_email_field', string="Email", required=1, tracking=1)
     gender = fields.Selection([
         ('male', 'Male'),
         ('female', 'Female')
-    ], required=1, tracking=1)
-    dob = fields.Date(default=fields.Date.today, tracking=1)
-    date_of_joining = fields.Date(default=fields.Date.today, tracking=1)
+    ], required=1)
+    dob = fields.Date(default=fields.Date.today)
+    date_of_joining = fields.Date(default=fields.Date.today)
     trainee_designation = fields.Many2one('designation.designation', string="Designation", tracking=1,
                                           options="{'no_quick_create': True, 'no_create_edit' : True}")
     trainee_location = fields.Many2one('location.location', string="Location", tracking=1,
                                        options="{'no_quick_create': True, 'no_create_edit' : True}")
-    image = fields.Binary("Profile Image", tracking=1)
+    image = fields.Binary("Profile Image")
 
     # new many2one field to link our trainees with hr.employee model
     employee_id = fields.Many2one('hr.employee', string="Employee")
 
+    # creating different state for status bar:-
+    state = fields.Selection([('new', 'New'),
+                              ('training', 'Training'),
+                              ('rejected', 'Rejected'),
+                              ('employed', 'Employed')],
+                             string="Status", readonly=True, default='new', tracking=1)
+
     # to concatenate the first and last name
     @api.depends('first_name', 'last_name')
-    def comp_name(self):
+    def _comp_name(self):
         for rec in self:
             rec.name = str(rec.first_name or '') + ' ' + str(rec.last_name or '')
 
@@ -78,13 +84,6 @@ class BtManagement(models.Model):
          'unique(email)',
          'Email ID is already in use')
     ]
-
-    # creating different state for status bar:-
-    state = fields.Selection([('new', 'New'),
-                              ('training', 'Training'),
-                              ('rejected', 'Rejected'),
-                              ('employed', 'Employed')],
-                             string="Status", readonly=True, default='new', tracking=1)
 
     # defining action function for training button:-
     def confirm(self):

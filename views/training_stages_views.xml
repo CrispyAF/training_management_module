@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+  <data>
+
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="stages_list">
+      <field name="name">training stages list</field>
+      <field name="model">stages.stages</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="stages"/>
+          <field name="available_on_batch"/>
+          <field name="available_on_training_record"/>
+          <field name="status"/>
+        </tree>
+      </field>
+    </record>
+
+        <!-- explicit form view definition -->
+
+    <record model="ir.ui.view" id="stages_form">
+      <field name="name">stages form</field>
+      <field name="model">stages.stages</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <group>
+              <group>
+                <field name="stages"/>
+                <field name="status"/>
+              </group>
+              <group>
+                <field name="available_on_batch"/>
+                <field name="available_on_training_record"/>
+              </group>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="stages_action_window">
+      <field name="name">Training Stages</field>
+      <field name="res_model">stages.stages</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="bt_management.action_server">
+      <field name="name">bt_management server</field>
+      <field name="model_id" ref="model_bt_management_bt_management"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- actions -->
+    <menuitem name="Training Stages" id="stages_menu_list" parent="bt_management.menu_3"
+              action="stages_action_window"/>
+
+
+  </data>
+</odoo>

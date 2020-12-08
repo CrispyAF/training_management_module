@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from odoo import models, fields
+from odoo import models, fields, api, _
 
 
 class Batch(models.Model):
@@ -9,12 +9,16 @@ class Batch(models.Model):
 
     _rec_name = 'batch'
     batch = fields.Char()
-    start_date = fields.Date(default=fields.Date.today, tracking=1)
-    end_date = fields.Date(default=fields.Date.today, tracking=1)
-    location = fields.Many2one('location.location', string="Location", tracking=1,
-                               options="{'no_quick_create': True, 'no_create_edit' : True}")
+    start_date = fields.Date(default=fields.Date.today)
+    end_date = fields.Date(default=fields.Date.today)
+    location = fields.Many2one('location.location', string="Location")
     trainees = fields.One2many('bt_management.bt_management', 'trainee', string="Trainees")
     trainers = fields.One2many('trainer.trainer', 'trainer', string="Trainers")
-    stages = fields.Many2one('stages.stages', string="Stages", tracking=1,
-                             options="{'no_quick_create': True, 'no_create_edit' : True}")
+    stages = fields.Many2one('stages.stages', string="Stages")
     training_topics = fields.Many2many('topic.topic', string="Training Topics")
+
+    # creating different state for status bar:-
+    state = fields.Selection([('draft', 'Draft'),
+                              ('progress', 'Progress'),
+                              ('done', 'Done')],
+                             string="Status", readonly=True, default='draft', tracking=1)
