@@ -5,3 +5,6 @@ access_designation_designation,designation.designation,model_designation_designa
 access_location_location,location.location,model_location_location,base.group_user,1,1,1,1
 access_topic_topic,topic.topic,model_topic_topic,base.group_user,1,1,1,1
 access_subjects_subjects,subjects.subjects,model_subjects_subjects,base.group_user,1,1,1,1
+access_attendance_attendance,attendance.attendance,model_attendance_attendance,base.group_user,1,1,1,1
+access_batch_batch,batch.batch,model_batch_batch,base.group_user,1,1,1,1
+access_record_record,record.record,model_record_record,base.group_user,1,1,1,1

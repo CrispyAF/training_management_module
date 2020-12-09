@@ -12,10 +12,10 @@
         <tree>
           <field name="record_name"/>
           <field name="record_date"/>
-          <field name="batch"/>
-          <field name="training_lines"/>
-          <field name="topics_covered"/>
-          <field name="attendance"/>
+<!--          <field name="batch"/>-->
+<!--          <field name="training_lines"/>-->
+<!--          <field name="topics_covered"/>-->
+<!--          <field name="attendance"/>-->
         </tree>
       </field>
     </record>
@@ -27,20 +27,39 @@
       <field name="model">record.record</field>
       <field name="arch" type="xml">
         <form>
+          <header>
+            <field name="stage_id" widget="statusbar" options="{'clickable': 1}"
+                   domain="[('available_on_training_record', '=', True)]"/>
+          </header>
           <sheet>
+            <div class="oe_title">
+              <h2>
+                <field name="record_name" readonly="1"/>
+              </h2>
+            </div>
             <group>
               <group>
-                <field name="record_name"/>
                 <field name="record_date"/>
-                <field name="batch"/>
-              </group>
-              <group>
-                <field name="training_lines"/>
-                <field name="topics_covered"/>
-                <field name="attendance"/>
-<!--                stages is left-->
+                <field name="batch_id"/>
               </group>
             </group>
+          <notebook>
+            <page string="Training Record Lines">
+                <group>
+                    <field name="training_record_lines"/>
+                </group>
+            </page>
+            <page string="Topics Covered">
+                <group>
+                  <field name="topics_covered"/>
+                </group>
+            </page>
+            <page string="Attendance">
+                <group>
+                  <field name="attendance"/>
+                </group>
+            </page>
+          </notebook>
           </sheet>
         </form>
       </field>

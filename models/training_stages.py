@@ -11,7 +11,7 @@ class Stages(models.Model):
     stages = fields.Char()
     available_on_batch = fields.Boolean("Available on Batch")
     available_on_training_record = fields.Boolean("Available on Training Record")
-    status = fields.Selection([('draft', 'Draft'),
-                               ('progress', 'Progress'),
-                               ('done', 'Done')],
-                              string="Status", readonly=True, default='draft', tracking=1)
+    stages_status = fields.Selection([('draft', 'Draft'),
+                                      ('progress', 'Progress'),
+                                      ('done', 'Done')],
+                                     string="Status")

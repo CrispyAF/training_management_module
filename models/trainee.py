@@ -3,12 +3,13 @@
 from odoo import models, fields, api, _
 from odoo.exceptions import ValidationError
 
+
 class BtManagement(models.Model):
     _name = 'bt_management.bt_management'
     _inherit = ['mail.thread', 'mail.activity.mixin']
     _description = 'Trainee Management'
 
-    name = fields.Char(compute='_comp_name', tracking=1)
+    name = fields.Char(compute='_comp_name', tracking=1, store=True)
     first_name = fields.Char("First Name", required=1)
     last_name = fields.Char("Last Name")
     trainee_id = fields.Char(string='Trainee ID', required=True, copy=False, readonly=True, index=True,
@@ -66,7 +67,7 @@ class BtManagement(models.Model):
             if obj:
                 raise ValidationError(_('Employee Code is already in use'))
 
-      #  To duplicate a unique fields
+    #  To duplicate a unique fields
 
     @api.returns('self', lambda trainee_id: trainee_id.id)
     def copy(self, default=None):

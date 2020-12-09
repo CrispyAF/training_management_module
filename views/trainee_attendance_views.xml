@@ -12,11 +12,11 @@
         <tree>
           <field name="trainee_attendance_name"/>
           <field name="date"/>
-          <field name="trainee"/>
+<!--          <field name="trainee"/>-->
           <field name="login_time"/>
           <field name="logout_time"/>
-          <field name="hours"/>
-          <field name="training_record"/>
+<!--          <field name="hours"/>-->
+<!--          <field name="training_record"/>-->
         </tree>
       </field>
     </record>
@@ -29,22 +29,22 @@
       <field name="arch" type="xml">
         <form>
           <sheet>
+            <div class="oe_title">
+              <h2>
+                <field name="trainee_attendance_name" readonly="1"/>
+              </h2>
+            </div>
             <group>
-              <div class="oe_title">
-                <h2>
-                  <field name="trainee_attendance_name" readonly="1"/>
-                </h2>
-              </div>
               <group>
                 <field name="date"/>
-                <field name="trainee"/>
+                <field name="logout_time"/>
                 <field name="login_time"/>
               </group>
-              <group>
-                <field name="logout_time"/>
-                <field name="hours"/>
-                <field name="training_record" readonly="1"/>
-              </group>
+<!--              <group>-->
+<!--                <field name="trainee"/>-->
+<!--                <field name="hours"/>-->
+<!--                <field name="training_record" readonly="1"/>-->
+<!--              </group>-->
             </group>
           </sheet>
         </form>
@@ -78,7 +78,6 @@
     <!-- actions -->
     <menuitem name="Attendance" id="attendance_menu_list" parent="bt_management.menu_3"
               action="attendance_action_window"/>
-
 
   </data>
 </odoo>
