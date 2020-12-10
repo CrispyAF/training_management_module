@@ -12,10 +12,10 @@
         <tree>
           <field name="trainee_attendance_name"/>
           <field name="date"/>
-<!--          <field name="trainee"/>-->
+          <field name="trainee"/>
           <field name="login_time"/>
           <field name="logout_time"/>
-<!--          <field name="hours"/>-->
+          <field name="hours"/>
 <!--          <field name="training_record"/>-->
         </tree>
       </field>
@@ -40,11 +40,10 @@
                 <field name="logout_time"/>
                 <field name="login_time"/>
               </group>
-<!--              <group>-->
-<!--                <field name="trainee"/>-->
-<!--                <field name="hours"/>-->
-<!--                <field name="training_record" readonly="1"/>-->
-<!--              </group>-->
+              <group>
+                <field name="trainee"/>
+                <field name="hours"/>
+              </group>
             </group>
           </sheet>
         </form>

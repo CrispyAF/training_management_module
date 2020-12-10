@@ -8,7 +8,7 @@ class Stages(models.Model):
     _description = 'stages'
 
     _rec_name = 'stages'
-    stages = fields.Char()
+    stages = fields.Char(string="Stage")
     available_on_batch = fields.Boolean("Available on Batch")
     available_on_training_record = fields.Boolean("Available on Training Record")
     stages_status = fields.Selection([('draft', 'Draft'),

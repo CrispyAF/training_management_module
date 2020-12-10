@@ -33,20 +33,19 @@
               <group>
                   <field name="trainers" widget="many2many_tags" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
               </group>
-            </group>
-
-          <notebook>
-            <page string="Description">
-                <group>
-                    <field name="description"/>
-                </group>
-            </page>
-            <page string="Topic">
-                <group>
-                  <field name="topic"/>
-                </group>
-            </page>
-          </notebook>
+            </group>s
+            <notebook>
+              <page string="Description">
+                  <group>
+                      <field name="description"/>
+                  </group>
+              </page>
+              <page string="Topic">
+                  <group>
+                    <field name="topic"/>
+                  </group>
+              </page>
+            </notebook>
           </sheet>
         </form>
       </field>

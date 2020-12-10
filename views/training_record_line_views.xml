@@ -5,31 +5,36 @@
 
     <!-- explicit list view definition -->
 
-    <record model="ir.ui.view" id="training_topic_list">
-      <field name="name">topic list</field>
-      <field name="model">topic.topic</field>
+    <record model="ir.ui.view" id="training_record_line">
+      <field name="name">training_record_line list</field>
+      <field name="model">training_record_line.training_record_line</field>
       <field name="arch" type="xml">
         <tree>
-          <field name="topic_name"/>
-          <field name="subject"/>
+          <field name="training_record_line_trainee"/>
+          <field name="training_record_line_name"/>
+          <field name="training_record"/>
+          <field name="remarks"/>
+<!--          <field name="attendance"/>-->
         </tree>
       </field>
     </record>
 
         <!-- explicit form view definition -->
 
-    <record model="ir.ui.view" id="training_topic_form">
-      <field name="name">topic form</field>
-      <field name="model">topic.topic</field>
+    <record model="ir.ui.view" id="training_record_line form">
+      <field name="name">training_record_line form</field>
+      <field name="model">training_record_line.training_record_line</field>
       <field name="arch" type="xml">
         <form>
           <sheet>
             <group>
               <group>
-                <field name="topic_name"/>
+                <field name="training_record_line_trainee"/>
+                <field name="training_record_line_name"/>
               </group>
               <group>
-                <field name="subject" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
+                <field name="training_record"/>
+                <field name="remarks"/>
               </group>
             </group>
           </sheet>
@@ -39,9 +44,9 @@
 
     <!-- actions opening views on models -->
 
-    <record model="ir.actions.act_window" id="topic_action_window">
-      <field name="name">Topic</field>
-      <field name="res_model">topic.topic</field>
+    <record model="ir.actions.act_window" id="training_record_line_action_window">
+      <field name="name">Training Record Line</field>
+      <field name="res_model">training_record_line.training_record_line</field>
       <field name="view_mode">tree,form</field>
     </record>
 
@@ -62,8 +67,8 @@
 -->
 
     <!-- actions -->
-    <menuitem name="Topic" id="topic_menu_list" parent="bt_management.menu_2"
-              action="topic_action_window"/>
+    <menuitem name="Record Line" id="training_record_line_menu_list" parent="bt_management.menu_3"
+              action="training_record_line_action_window"/>
 
 
   </data>

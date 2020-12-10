@@ -13,7 +13,7 @@
           <field name="stages"/>
           <field name="available_on_batch"/>
           <field name="available_on_training_record"/>
-          <field name="status"/>
+          <field name="stages_status"/>
         </tree>
       </field>
     </record>
@@ -29,7 +29,7 @@
             <group>
               <group>
                 <field name="stages"/>
-                <field name="status"/>
+                <field name="stages_status"/>
               </group>
               <group>
                 <field name="available_on_batch"/>

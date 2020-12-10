@@ -124,7 +124,7 @@
         <field name="name">bt_management.kanban</field>
         <field name="model">bt_management.bt_management</field>
         <field name="arch" type="xml">
-            <kanban>
+            <kanban default_group_by="state" class="o_kanban_small_column o_opportunity_kanban">
                 <field name="name"/>
                 <field name="id"/>
 <!--                <field name="trainee_id"/>-->

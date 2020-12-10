@@ -10,12 +10,12 @@
       <field name="model">record.record</field>
       <field name="arch" type="xml">
         <tree>
-          <field name="record_name"/>
+<!--          <field name="record_name"/>-->
           <field name="record_date"/>
-<!--          <field name="batch"/>-->
-<!--          <field name="training_lines"/>-->
+          <field name="batch_id"/>
+<!--          <field name="training_record_lines"/>-->
 <!--          <field name="topics_covered"/>-->
-<!--          <field name="attendance"/>-->
+          <field name="attendance"/>
         </tree>
       </field>
     </record>
@@ -44,16 +44,16 @@
               </group>
             </group>
           <notebook>
-            <page string="Training Record Lines">
-                <group>
-                    <field name="training_record_lines"/>
-                </group>
-            </page>
-            <page string="Topics Covered">
-                <group>
-                  <field name="topics_covered"/>
-                </group>
-            </page>
+<!--            <page string="Training Record Lines">-->
+<!--                <group>-->
+<!--                    <field name="training_record_lines"/>-->
+<!--                </group>-->
+<!--            </page>-->
+<!--            <page string="Topics Covered">-->
+<!--                <group>-->
+<!--                  <field name="topics_covered"/>-->
+<!--                </group>-->
+<!--            </page>-->
             <page string="Attendance">
                 <group>
                   <field name="attendance"/>

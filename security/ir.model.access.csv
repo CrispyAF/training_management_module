@@ -7,4 +7,7 @@ access_topic_topic,topic.topic,model_topic_topic,base.group_user,1,1,1,1
 access_subjects_subjects,subjects.subjects,model_subjects_subjects,base.group_user,1,1,1,1
 access_attendance_attendance,attendance.attendance,model_attendance_attendance,base.group_user,1,1,1,1
 access_batch_batch,batch.batch,model_batch_batch,base.group_user,1,1,1,1
+access_trainee_batch_co_trainee_batch_co,trainee_batch_co.trainee_batch_co,model_trainee_batch_co_trainee_batch_co,base.group_user,1,1,1,1
+access_trainer_batch_co_trainer_batch_co,trainer_batch_co.trainer_batch_co,model_trainer_batch_co_trainer_batch_co,base.group_user,1,1,1,1
 access_record_record,record.record,model_record_record,base.group_user,1,1,1,1
+access_stages_stages,stages.stages,model_stages_stages,base.group_user,1,1,1,1
