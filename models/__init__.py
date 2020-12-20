@@ -10,6 +10,6 @@ from . import hr_employee
 from . import trainee_attendance
 from . import trainee_batch
 from . import training_record
-# from . import training_record_line
+from . import training_record_line
 from . import training_stages
-# from . import training_topic_line
+from . import training_topic_line

@@ -19,7 +19,8 @@ class Record(models.Model):
     # topics_covered = fields.One2many('training_topic_line.training_topic_line', 'topics_covered',
     #                                  string="Topics Covered")
 
-    attendance = fields.One2many('attendance.attendance', 'trainee_attendance_name')
+    # do the below field later
+    # attendance = fields.One2many('attendance.attendance', 'trainee')
 
     # creating different state for status bar:-
     stage_id = fields.Many2one('stages.stages', string="Stages",
@@ -29,7 +30,8 @@ class Record(models.Model):
     @api.depends('record_date')
     def _comp_record_name(self):
         for rec in self:
-            rec.record_name = 'Training Attendance Record of ' + str(rec.record_date)
+            rec.record_name = 'Training Record of ' + str(rec.record_date)
+            # '{:%d-%m-%Y}'.format(cur_dt1)
 
     # auto-populate the values of trainee from batch
     # @api.onchange('batch_id')

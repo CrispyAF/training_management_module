@@ -5,8 +5,8 @@
 
     <!-- explicit list view definition -->
 
-    <record model="ir.ui.view" id="training_record_line">
-      <field name="name">training_record_line list</field>
+    <record model="ir.ui.view" id="training_record_line_list">
+      <field name="name">training_record_line_list</field>
       <field name="model">training_record_line.training_record_line</field>
       <field name="arch" type="xml">
         <tree>
@@ -21,8 +21,8 @@
 
         <!-- explicit form view definition -->
 
-    <record model="ir.ui.view" id="training_record_line form">
-      <field name="name">training_record_line form</field>
+    <record model="ir.ui.view" id="training_record_line_form">
+      <field name="name">training_record_line_form</field>
       <field name="model">training_record_line.training_record_line</field>
       <field name="arch" type="xml">
         <form>
@@ -34,9 +34,15 @@
               </group>
               <group>
                 <field name="training_record"/>
-                <field name="remarks"/>
               </group>
             </group>
+              <notebook>
+                <page string="Remarks">
+                    <group>
+                      <field name="remarks" options="{'no_label' : True}"/>
+                    </group>
+                </page>
+              </notebook>
           </sheet>
         </form>
       </field>

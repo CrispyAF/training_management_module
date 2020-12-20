@@ -37,9 +37,9 @@
         'views/trainee_attendance_views.xml',
         'views/trainee_batch_views.xml',
         'views/training_record_views.xml',
-        # 'views/training_record_line_views.xml',
+        'views/training_record_line_views.xml',
         'views/training_stages_views.xml',
-        # 'views/training_topic_line_views.xml',
+        'views/training_topic_line_views.xml',
         'views/templates.xml',
     ],
     # only loaded in demonstration mode

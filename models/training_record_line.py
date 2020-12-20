@@ -18,7 +18,7 @@ class Training_Record_Line(models.Model):
     # attendance
 
     # to fill the record title
-    # @api.depends('trainee')
+    # @api.depends('')
     # def _comp_trainee_name(self):
     #     for rec in self:
     #         rec.training_record_line_name = rec.trainee
