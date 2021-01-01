@@ -44,11 +44,11 @@
               </group>
             </group>
           <notebook>
-<!--            <page string="Training Record Lines">-->
-<!--                <group>-->
-<!--                    <field name="training_record_lines" options="{'no_label' : True}"/>-->
-<!--                </group>-->
-<!--            </page>-->
+            <page string="Training Record Lines">
+                <group>
+                    <field name="training_record_lines" options="{'no_label' : True}"/>
+                </group>
+            </page>
 <!--            <page string="Topics Covered">-->
 <!--                <group>-->
 <!--                  <field name="topics_covered" options="{'no_label' : True}"/>-->

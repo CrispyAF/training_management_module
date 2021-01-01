@@ -14,8 +14,8 @@ class Record(models.Model):
     batch_id = fields.Many2one('batch.batch', string="Training Batch",
                                options="{'no_quick_create': True, 'no_create_edit' : True}")
 
-    # training_record_lines = fields.One2many('training_record_line.training_record_line', 'training_record',
-    #                                         string="Training Record Line")
+    training_record_lines = fields.One2many('training_record_line.training_record_line', 'training_record',
+                                            string="Training Record Line")
     # topics_covered = fields.One2many('training_topic_line.training_topic_line', 'topics_covered',
     #                                  string="Topics Covered")
 
